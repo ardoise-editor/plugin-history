@@ -1,0 +1,32 @@
+{
+  "id": "simpleedit.history",
+  "name": { "en": "Local History", "fr": "Historique local" },
+  "version": "1.0.0",
+  "api": 1,
+  "description": {
+    "en": "What files were, kept on this machine whatever Git knows: compare, revert, labels",
+    "fr": "Ce qu'étaient les fichiers, gardé sur cette machine quoi que sache Git : comparer, restaurer, labels"
+  },
+  "author": "SimpleEdit",
+  "repository": "simple-edit-app/plugin-history",
+  "license": "MIT",
+  "command": ["bin/history"],
+  "events": ["file_opened", "file_saved", "file_deleted", "file_renamed", "active_file"],
+  "contributes": {
+    "commands": [
+      {
+        "id": "history.show",
+        "title": { "en": "Local History: Show", "fr": "Historique local : afficher" },
+        "menus": ["editor", "file", "folder"]
+      },
+      {
+        "id": "history.label",
+        "title": { "en": "Local History: Put Label…", "fr": "Historique local : poser un label…" }
+      }
+    ],
+    "panels": [
+      { "id": "history", "title": { "en": "Local History", "fr": "Historique local" }, "icon": "", "location": "bottom" },
+      { "id": "settings", "title": { "en": "Local History", "fr": "Historique local" }, "location": "settings" }
+    ]
+  }
+}
