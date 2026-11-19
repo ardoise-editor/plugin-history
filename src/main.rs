@@ -3,6 +3,7 @@
 //! lists the revisions of a file or a folder; one is compared with now, put
 //! back, or saved as a patch.
 
+mod commits;
 mod store;
 mod text;
 
@@ -23,6 +24,8 @@ const PANEL: &str = "history";
 const SETTINGS: &str = "settings";
 /// How often the text being typed is kept, saved or not.
 const TICK: Duration = Duration::from_secs(60);
+/// How often the logs of the repositories are looked at for new commits.
+const COMMIT_TICK: Duration = Duration::from_secs(3);
 /// The choices of how long the history goes back, in working days.
 const DAYS: [u32; 7] = [0, 1, 5, 14, 30, 90, 365];
 
@@ -437,6 +440,19 @@ impl Plugin for History {
             .and_then(|s| serde_json::from_str(&s).ok())
             .unwrap_or_default();
         self.days.store(settings.days, Ordering::Relaxed);
+        // Each commit made in the workspace puts a label, at its time.
+        let mut watch = commits::Watch::new(&params.workspace);
+        let (store, days, french) = (self.store.clone(), self.days.clone(), self.french);
+        std::thread::spawn(move || loop {
+            std::thread::sleep(COMMIT_TICK);
+            let times = watch.new_commits();
+            if days.load(Ordering::Relaxed) == 0 {
+                continue;
+            }
+            for time in times {
+                let _ = store.put_label(t(french, "auto_commit"), true, time);
+            }
+        });
         // What is too old goes, once, then the text typed is kept now and then.
         let (store, days, host) = (self.store.clone(), self.days.clone(), host.clone());
         std::thread::spawn(move || {
