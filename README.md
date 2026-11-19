@@ -1,7 +1,7 @@
-# Local History — a SimpleEdit plugin
+# Local History — an Ardoise Editor plugin
 
 What files were, kept on this machine whatever Git knows, as IntelliJ IDEA
-has it, for [SimpleEdit](https://github.com/simple-edit-app/simpleedit). A
+has it, for [Ardoise Editor](https://github.com/ardoise-editor/ardoise). A
 file is kept when it is opened, saved, rewritten by a replace in files, about
 to be deleted, and every minute while it is typed in.
 

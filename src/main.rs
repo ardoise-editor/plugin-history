@@ -1,4 +1,4 @@
-//! The Local History plugin of SimpleEdit: what files were, kept on this
+//! The Local History plugin of Ardoise: what files were, kept on this
 //! machine whatever Git knows, with labels on moments that matter. Its panel
 //! lists the revisions of a file or a folder; one is compared with now, put
 //! back, or saved as a patch.
