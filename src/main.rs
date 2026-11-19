@@ -12,10 +12,10 @@ use std::sync::atomic::{AtomicU32, Ordering};
 use std::sync::Arc;
 use std::time::Duration;
 
+use ardoise_plugin::protocol::{Context, InitializeParams, Settings as EditorSettings, UiEvent};
+use ardoise_plugin::ui::*;
+use ardoise_plugin::{run, Host, Plugin};
 use serde::{Deserialize, Serialize};
-use simpleedit_plugin::protocol::{Context, InitializeParams, Settings as EditorSettings, UiEvent};
-use simpleedit_plugin::ui::*;
-use simpleedit_plugin::{run, Host, Plugin};
 
 use store::{Row, Store};
 use text::t;

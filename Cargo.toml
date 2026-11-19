@@ -1,10 +1,10 @@
 [package]
-name = "simpleedit-history"
+name = "ardoise-history"
 version = "1.1.1"
 edition = "2021"
 rust-version = "1.90"
 publish = false
-description = "The Local History plugin of SimpleEdit"
+description = "The Local History plugin of Ardoise"
 license = "MIT"
 
 [[bin]]
@@ -12,7 +12,7 @@ name = "history"
 path = "src/main.rs"
 
 [dependencies]
-simpleedit-plugin = { git = "https://github.com/simple-edit-app/plugin-sdk", tag = "v0.4.2" }
+ardoise-plugin = { path = "../plugin-sdk" }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 sha2 = "0.10"

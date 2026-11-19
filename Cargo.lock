@@ -12,6 +12,27 @@ dependencies = [
 ]
 
 [[package]]
+name = "ardoise-history"
+version = "1.1.1"
+dependencies = [
+ "ardoise-plugin",
+ "chrono",
+ "serde",
+ "serde_json",
+ "sha2",
+ "similar",
+ "tempfile",
+]
+
+[[package]]
+name = "ardoise-plugin"
+version = "0.12.0"
+dependencies = [
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "autocfg"
 version = "1.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -373,28 +394,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d2f8bec09ae8fae0f4f265a4559a9334be3929d8504e9b536df0a41302bd1733"
 dependencies = [
  "bstr",
-]
-
-[[package]]
-name = "simpleedit-history"
-version = "1.1.1"
-dependencies = [
- "chrono",
- "serde",
- "serde_json",
- "sha2",
- "similar",
- "simpleedit-plugin",
- "tempfile",
-]
-
-[[package]]
-name = "simpleedit-plugin"
-version = "0.4.2"
-source = "git+https://github.com/simple-edit-app/plugin-sdk?tag=v0.4.2#9fa273e5a3c202978bc45634794c4c30c1a6eade"
-dependencies = [
- "serde",
- "serde_json",
 ]
 
 [[package]]
