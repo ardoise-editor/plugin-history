@@ -1,7 +1,7 @@
 {
   "id": "ardoise.history",
   "name": { "en": "Local History", "fr": "Historique local" },
-  "version": "1.1.1",
+  "version": "1.1.2",
   "api": 1,
   "description": {
     "en": "What files were, kept on this machine whatever Git knows: compare, revert, labels",
